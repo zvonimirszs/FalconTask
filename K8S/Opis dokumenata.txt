@@ -1,0 +1,20 @@
+Dokumenti za isporuku/deplojment kontejnera u Kubernetes
+
+ingress-srv.yaml
+ - API pristupnik
+
+rabbitmq-depl.yaml
+ - Sabirnica događaja/Event bus
+
+mssql-plat-delp.yaml
+ - MS sql server express 2017
+
+local-pvc.yaml
+ - balanser opterećenja za MS SQL - 200 MB
+
+identity-delp.yaml
+ - Identifikacijski servis
+
+dataservice-delp.yaml
+ - Servis za podatke
+

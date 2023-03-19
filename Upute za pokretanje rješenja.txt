@@ -1,0 +1,74 @@
+POKRETANJE programskog rješenja iz razvojnog alata (Visual Studio Code)
+ - svi projekti u Development okruženju koriste InMemory DB
+    - zbog toga nije potrebno imati pokrenuti kontejner sa MS SQL Server Express
+ - RabbitMQ je pokrenut u kontejneru
+    - bez pokretanja RabbitMQ kontejenra određene funkcionalnosti (primanje i lsanje asinkronih poruka) programskog rješenja neće raditi
+ - da bi testiralo sve funkcionalnosti, svih servisa potrebno je pokrenuti sve servise određenim redosljedom
+    - Identifikacijski servis
+    - Podatkovni servis
+ - pokretanje servisa pojedinačno
+    - otvoriti terminal
+    - upisati dotnet run
+ - tesiranje svakog servisa  pojedinačno - localhost 
+   - koristiti Postman (besplatan)
+   - opis i instalacija u nastavku
+
+KREIRANJE DOCKER slike
+ - "docker build -t [naziv korisničkog računa na Docker Hub]/[naziv servisa, npr. identity] ."
+ Guranje docker slike na Docker Hub
+  - izrada računa na Docker Hub (besplatno)
+    - "docker push [naziv korisničkog računa na Docker Hub]/[naziv servisa koji se kreirao, npr. identity]" 
+
+POKRETANJE programskog rješenja za izvođenje iz kontejnera
+ - instalacija DOCKER desktopa ili nekog drugog alata (besplatno)
+ - instalacija ingress-nginx namespace u Kubernetes
+    - https://kubernetes.github.io/ingress-nginx/deploy/#quick-start
+        -   izvršiti komandu liniju: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.3.0/deploy/static/provider/cloud/deploy.yaml
+ - potrebno je izvršiti sve yaml datoteke iz mapi K8S
+    - primjer izvršne linije "kubectl apply -f [naziv yaml datoteke, npr. identity-depl.yaml]"
+    - da bi testiralo sve funkcionalnosti, svih servisa potrebno je pokrenuti sve servise određenim redosljedom
+        - ingress-srv.yaml
+        - rabbitmq-delp.yaml
+        - mssql-plat-depl.yaml
+        - local-pvc.yaml
+        - identity-depl.yaml
+        - dataservice-depl.yaml
+ - svi projekti u Production okruženju koriste MS SQL DB
+    - zbog toga JE potrebno imati pokrenuti kontejner sa MS SQL Server Express (yaml datoteka je u mapi K8S)
+ - RabbitMQ je pokrenut u kontejneru
+    - bez pokretanja RabbitMQ kontejenra određene funkcionalnosti (primanje i slanje asinkronih poruka) programskog rješenja neće raditi
+    - yaml datoteka je u mapi K8S
+ - tesiranje programskog rješenja
+  - koristiti Postman (besplatan) - preko mapirane domene ...
+  - .. (napisati upite prema API-ima)
+
+INSTALACIJA DOCKER desktopa
+   - skinuti i instalirai Docker desktop (besplatan)
+   - nakon instalacije Docker desktop - ako nije na raćunalu instaliran wsl 2
+      - https://docs.microsoft.com/en-gb/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
+      - https://docs.microsoft.com/en-gb/windows/wsl/install
+   - ne zaboraviti pokrenuti Kubernetes u Docker desktopu
+
+DODAVANJE user-a u docker-grupu
+   - Dodavanje docker-user u docker grupu jer se docker desktop instalira pod admin accountom
+      - https://stackoverflow.com/questions/65423660/how-to-add-domain-user-to-a-group-docker-users-in-windows-10-enterprise-unab
+      - izvršiti komandnu liniju net localgroup "docker-users" "<your username>" /add
+
+POSTMAN
+   -Postman je besplatna API platforma za razvojne programere za dizajniranje, izgradnju, testiranje i ponavljanje svojih API-ja
+      - skinuti i instalirati na računalo
+   - Uvoz API upita u Postman za testiranje programskog rješenja
+      - dokumenti
+         - Postman.Kolekcija_za_testiranje.Lokalno.json
+         - Postman.Kolekcija_za_testiranje.K8S.json
+
+SKRIVENI KLJUČ U KIBERNETES
+ - kreirati skriveni ključ
+    - izvršiti komandnu liniju kubectl create secret generic mssql --from-literal=SA_PASSWORD="pa55w0rd!"
+        - msslq je name a SA_PASSWORD je key lozinke - to ćemo koristiti u deployment yaml dokumentu za MSSQL sever 
+EDITIRANJE  HOST dokumenta
+- postavljanje lažne domene (falcontask.com) u naše postavke - localhost file update
+    - putanja je C:\Windows\System32\drivers\etc
+    - dokument host
+        - otvoriti kao administrator
+        - dodati liniju 127.0.0.1 falcontask.com (to će preusmjeriti sve pozive na 127.0.0.1)

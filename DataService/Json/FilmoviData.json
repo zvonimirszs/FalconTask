@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "Naziv": "Film 1",
+    "Opis": "Opis film 1",
+    "Budzet": 120000000,
+    "PocetakSnimanja": null,
+    "KrajSnimanja": null,
+    "DirektorId": 1,
+    "Zanrovi": [
+      1,
+      2
+    ],
+    "Glumci": [
+      1,
+      2
+    ]
+  },
+  {
+    "id": "2",
+    "Naziv": "Film 2",
+    "Opis": "Opis film 2",
+    "Budzet": 320000000,
+    "PocetakSnimanja": null,
+    "KrajSnimanja": null,
+    "DirektorId": 2,
+    "Zanrovi": [
+      2,
+      3
+    ],
+    "Glumci": [
+      1,
+      2
+    ]
+  }
+]
+

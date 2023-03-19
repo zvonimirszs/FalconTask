@@ -1,0 +1,10 @@
+[
+  {
+    "FirstName": "SuperKorisnik",
+    "LastName": "Admin",
+    "Username": "testAdmin",
+    "Role": "Admin",
+    "Password": "Admin",
+    "PasswordHash": ""
+  }
+]

@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-falcon-srv
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+spec:
+  rules:
+    - host: acme.com
+      http:
+        paths:
+          - path: /api/identifikacija
+            pathType: Prefix
+            backend:
+              service:
+                name: identity-clusterip-srv
+                port:
+                  number: 80
+          - path: /api/podaci
+            pathType: Prefix
+            backend:
+              service:
+                name: dataservice-clusterip-srv
+                port:
+                  number: 80

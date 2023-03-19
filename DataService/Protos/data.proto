@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option csharp_namespace = "DataService";
+
+service GrpcData {
+    rpc GetAllZanrovi (GetAllRequest) returns (ZanrResponse);
+    rpc GetAllDirektori (GetAllRequest) returns (DirektorResponse);
+}
+
+message GetAllRequest {}
+
+message GrpcZanrModel{
+    int32 zanrId = 1;
+    string naziv = 2;
+    string opis = 3;
+}
+message GrpcDirektorModel{
+    int32 direktorId = 1;
+    string ime = 2;
+    string prezime = 3;
+    string adresa = 4;
+}
+
+message ZanrResponse {
+    repeated GrpcZanrModel zanr = 1;
+}
+message DirektorResponse {
+    repeated GrpcDirektorModel direktor = 1;
+}

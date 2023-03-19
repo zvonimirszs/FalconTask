@@ -1,0 +1,15 @@
+[
+  {
+    "Ime": "Tom",
+    "Prezime": "Hanks",
+    "Adresa": "SAD",
+    "OcekivaniHonorar": 10000000
+  },
+  {
+    "Ime": "Sandra",
+    "Prezime": "Bullock",
+    "Adresa": "SAD",
+    "OcekivaniHonorar": 5000000
+  }
+
+]
