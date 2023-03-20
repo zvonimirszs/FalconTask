@@ -1,0 +1,351 @@
+{
+	"info": {
+		"_postman_id": "d3f84ea8-f443-46c0-b588-5dfdab1f327d",
+		"name": "Falcon - DataService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3568770"
+	},
+	"item": [
+		{
+			"name": "Direktor",
+			"item": [
+				{
+					"name": "Svi direktori",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJGaXJzdE5hbWUiOiJTdXBlcktvcmlzbmlrIiwiTGFzdE5hbWUiOiJBZG1pbiIsIlVzZXJuYW1lIjoidGVzdEFkbWluIiwiUm9sZSI6IkFkbWluIiwibmJmIjoxNjc5MjIzNDE2LCJleHAiOjE2NzkyMjQzMTYsImlhdCI6MTY3OTIyMzQxNn0.tD1vl8IiMXkEQ7JSDXPARBdjBUH1Q_CSALygRSJgjYw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7068/api/podaci/direktor",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7068",
+							"path": [
+								"api",
+								"podaci",
+								"direktor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete - direktor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJGaXJzdE5hbWUiOiJTdXBlcktvcmlzbmlrIiwiTGFzdE5hbWUiOiJBZG1pbiIsIlVzZXJuYW1lIjoidGVzdEFkbWluIiwiUm9sZSI6IkFkbWluIiwibmJmIjoxNjc5MjIzNDE2LCJleHAiOjE2NzkyMjQzMTYsImlhdCI6MTY3OTIyMzQxNn0.tD1vl8IiMXkEQ7JSDXPARBdjBUH1Q_CSALygRSJgjYw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 1,\r\n        \"ime\": \"Alfred\",\r\n        \"adresa\": \"SAD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7068/api/podaci/direktor/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7068",
+							"path": [
+								"api",
+								"podaci",
+								"direktor",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Direktor - ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJGaXJzdE5hbWUiOiJTdXBlcktvcmlzbmlrIiwiTGFzdE5hbWUiOiJBZG1pbiIsIlVzZXJuYW1lIjoidGVzdEFkbWluIiwiUm9sZSI6IkFkbWluIiwibmJmIjoxNjc5MjIzNDE2LCJleHAiOjE2NzkyMjQzMTYsImlhdCI6MTY3OTIyMzQxNn0.tD1vl8IiMXkEQ7JSDXPARBdjBUH1Q_CSALygRSJgjYw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7068/api/podaci/direktor/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7068",
+							"path": [
+								"api",
+								"podaci",
+								"direktor",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJGaXJzdE5hbWUiOiJTdXBlcktvcmlzbmlrIiwiTGFzdE5hbWUiOiJBZG1pbiIsIlVzZXJuYW1lIjoidGVzdEFkbWluIiwiUm9sZSI6IkFkbWluIiwibmJmIjoxNjc5MjIzNDE2LCJleHAiOjE2NzkyMjQzMTYsImlhdCI6MTY3OTIyMzQxNn0.tD1vl8IiMXkEQ7JSDXPARBdjBUH1Q_CSALygRSJgjYw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ime\": \"test\",\r\n    \"prezime\": \"test pr\",\r\n    \"adresa\": \"CRO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7068/api/podaci/direktor",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7068",
+							"path": [
+								"api",
+								"podaci",
+								"direktor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJGaXJzdE5hbWUiOiJTdXBlcktvcmlzbmlrIiwiTGFzdE5hbWUiOiJBZG1pbiIsIlVzZXJuYW1lIjoidGVzdEFkbWluIiwiUm9sZSI6IkFkbWluIiwibmJmIjoxNjc5MjIzNDE2LCJleHAiOjE2NzkyMjQzMTYsImlhdCI6MTY3OTIyMzQxNn0.tD1vl8IiMXkEQ7JSDXPARBdjBUH1Q_CSALygRSJgjYw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"3\",\r\n    \"ime\": \"test Ime\",\r\n    \"prezime\": \"test prezime\",\r\n    \"adresa\": \"CRO HR\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7068/api/podaci/direktor/3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7068",
+							"path": [
+								"api",
+								"podaci",
+								"direktor",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Film",
+			"item": [
+				{
+					"name": "Filmovi",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJGaXJzdE5hbWUiOiJTdXBlcktvcmlzbmlrIiwiTGFzdE5hbWUiOiJBZG1pbiIsIlVzZXJuYW1lIjoidGVzdEFkbWluIiwiUm9sZSI6IkFkbWluIiwibmJmIjoxNjc5MjQ5NzM0LCJleHAiOjE2NzkyNTA2MzQsImlhdCI6MTY3OTI0OTczNH0.RF8OXTurj6NK2DMgWIcC2CyFBCC2K_UkkWJ0V42LqDw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"id\": \"3\",\r\n    \"Naziv\": \"Film 3\",\r\n    \"Opis\": \"Opis film 3\",\r\n    \"Budzet\": 210000000,\r\n    \"PocetakSnimanja\": null,\r\n    \"KrajSnimanja\": null,\r\n    \"DirektorId\": 2,\r\n    \"Zanrovi\": [\r\n      1,\r\n      3\r\n    ],\r\n    \"Glumci\": [\r\n      1\r\n    ]\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7068/api/podaci/film",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7068",
+							"path": [
+								"api",
+								"podaci",
+								"film"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Film - ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJGaXJzdE5hbWUiOiJTdXBlcktvcmlzbmlrIiwiTGFzdE5hbWUiOiJBZG1pbiIsIlVzZXJuYW1lIjoidGVzdEFkbWluIiwiUm9sZSI6IkFkbWluIiwibmJmIjoxNjc5MjUzMDEwLCJleHAiOjE2NzkyNTM5MTAsImlhdCI6MTY3OTI1MzAxMH0.j8qbGMBpjVBa9S8v8SlUGWylnbBy68d1u7BuWmZ1FXw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7068/api/podaci/film/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7068",
+							"path": [
+								"api",
+								"podaci",
+								"film",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Glumac",
+			"item": [
+				{
+					"name": "Glumci",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJGaXJzdE5hbWUiOiJTdXBlcktvcmlzbmlrIiwiTGFzdE5hbWUiOiJBZG1pbiIsIlVzZXJuYW1lIjoidGVzdEFkbWluIiwiUm9sZSI6IkFkbWluIiwibmJmIjoxNjc5MjUzNjU0LCJleHAiOjE2NzkyNTQ1NTQsImlhdCI6MTY3OTI1MzY1NH0.eivtPpWI-6jP_Vn_fsf6ddQJxmkQVz1bBQkIdGFN-fQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7068/api/podaci/glumac",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7068",
+							"path": [
+								"api",
+								"podaci",
+								"glumac"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Autorizacija",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"testAdmin\",\r\n    \"password\": \"Admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7068/api/podaci/autorizacija",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7068",
+					"path": [
+						"api",
+						"podaci",
+						"autorizacija"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

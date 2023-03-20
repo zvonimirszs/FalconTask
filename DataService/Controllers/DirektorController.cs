@@ -62,8 +62,16 @@ namespace DataService.Controllers
             _repository.CreateDirektor(direktor);
             _repository.SaveChanges();
             //TO DO:  kreirati User objekt u Identity servisu (može: MQ ili grpc)
-
-            return Ok();
+            User user = new User
+            {
+                FirstName = direktor.Ime,
+                Id = direktor.Id,
+                LastName = direktor.Prezime,
+                Username = key,
+                Role = "Direktor"
+            };
+            var userCreated = _repository.CreateUser(user);
+            return Ok(_mapper.Map<DirektorReadDto>(userCreated));
         }
 
         [Authorize]

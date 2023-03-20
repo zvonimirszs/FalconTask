@@ -16,15 +16,17 @@ public class UserService : IUserService
     private IJwtUtils _jwtUtils;
     private readonly AppSettings _appSettings;
 
-     public UserService(
-        IIdentityRepo repository, IMapper mapper, 
-        IJwtUtils jwtUtils,
-        IOptions<AppSettings> appSettings)
+    public UserService()
+    {
+
+    }
+    public UserService(
+        IIdentityRepo repository,
+        IJwtUtils jwtUtils)
     {
         _repository= repository;
-        _mapper = mapper;
         _jwtUtils = jwtUtils;
-        _appSettings = appSettings.Value;
+        //_appSettings = appSettings.Value;
     }
 
     public AuthenticateResponse Authenticate(AuthenticateRequest model)
@@ -76,13 +78,19 @@ public class UserService : IUserService
         return response;
     }
 
-    //public IEnumerable<User> GetAll()
-    //{
-    //    throw new NotImplementedException();
-    //}
+    public User CreateUser(User user)
+    {
+        _repository.CreateUser(user);
+        _repository.SaveChanges();
 
-    //public User GetById(int id)
-    //{
-    //    throw new NotImplementedException();
-    //}
+        return _repository.GetUserByUserName(user.Username);
+    }
+
+    public User UpdateUser(User user)
+    {
+        _repository.UpdateUser(user);
+        _repository.SaveChanges();
+
+        return _repository.GetUserByUserName(user.Username);
+    }
 }

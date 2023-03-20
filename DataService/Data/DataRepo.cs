@@ -31,6 +31,14 @@ namespace DataService.Data
             return auth;    
         }
 
+        public User CreateUser(User model)
+        {
+            var grpcClient = _identityservice;
+            var user = grpcClient.ReturnCreateUserResponse(model);
+
+            return user;
+        }
+
         public AuthenticateResponse ValidateToken(string token)
         {
             var grpcClient = _identityservice;

@@ -5,6 +5,7 @@ option csharp_namespace = "Identity";
 service GrpcIdentity {
     rpc Authenticate (GrpcUserModel) returns (IdentityResponse);
     rpc ValidateToken (GetAllRequest) returns (IdentityResponse);
+    rpc CreateUser (GrpcIdentityModel) returns (IdentityResponse);
 }
 message GrpcUserModel{
     string username = 1;

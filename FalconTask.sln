@@ -3,22 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FalconWabApp", "WebApplication1\FalconWabApp.csproj", "{33093FB4-A47A-439D-86FA-3F364848250C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identity", "Identity\Identity.csproj", "{FB5B07E8-E178-428D-9491-6D69DE5664A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataService", "DataService\DataService.csproj", "{03537075-64E1-4D71-BD83-D58002DDDC7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataService", "DataService\DataService.csproj", "{03537075-64E1-4D71-BD83-D58002DDDC7B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7278EA48-50D2-49F6-BD23-0C576C6B1DB7}"
 	ProjectSection(SolutionItems) = preProject
 		K8S\dataservice-depl.yaml = K8S\dataservice-depl.yaml
+		Falcon - DataService.postman_collection.json = Falcon - DataService.postman_collection.json
 		K8S\identity-depl.yaml = K8S\identity-depl.yaml
 		K8S\ingress-srv.yaml = K8S\ingress-srv.yaml
 		K8S\local-pvc.yaml = K8S\local-pvc.yaml
 		K8S\mssql-plat-depl.yaml = K8S\mssql-plat-depl.yaml
 		K8S\Opis dokumenata.txt = K8S\Opis dokumenata.txt
 		K8S\rabbitmq-delp.yaml = K8S\rabbitmq-delp.yaml
+		Upute za pokretanje rješenja.txt = Upute za pokretanje rješenja.txt
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FalconWabApp", "FalconWabApp\FalconWabApp.csproj", "{F1D58B86-BC22-45E4-9072-8B1E927D496E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FalconServices.Tests", "FalconServices.Tests\FalconServices.Tests.csproj", "{D148E19C-6592-4124-96AB-7D5135123DD8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,10 +30,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{33093FB4-A47A-439D-86FA-3F364848250C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{33093FB4-A47A-439D-86FA-3F364848250C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{33093FB4-A47A-439D-86FA-3F364848250C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{33093FB4-A47A-439D-86FA-3F364848250C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FB5B07E8-E178-428D-9491-6D69DE5664A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FB5B07E8-E178-428D-9491-6D69DE5664A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB5B07E8-E178-428D-9491-6D69DE5664A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -38,6 +38,14 @@ Global
 		{03537075-64E1-4D71-BD83-D58002DDDC7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03537075-64E1-4D71-BD83-D58002DDDC7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03537075-64E1-4D71-BD83-D58002DDDC7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1D58B86-BC22-45E4-9072-8B1E927D496E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1D58B86-BC22-45E4-9072-8B1E927D496E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1D58B86-BC22-45E4-9072-8B1E927D496E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1D58B86-BC22-45E4-9072-8B1E927D496E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D148E19C-6592-4124-96AB-7D5135123DD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D148E19C-6592-4124-96AB-7D5135123DD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D148E19C-6592-4124-96AB-7D5135123DD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D148E19C-6592-4124-96AB-7D5135123DD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

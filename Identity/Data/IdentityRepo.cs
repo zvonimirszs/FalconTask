@@ -11,11 +11,25 @@ public class IdentityRepo : IIdentityRepo
 
     public void CreateUser(User user)
     {
-        throw new NotImplementedException();
+        if (user == null)
+        {
+            throw new ArgumentNullException(nameof(user));
+        }
+        if (user.Password == null || user.Password == "")
+        {
+            user.Password = user.Username;
+        }
+        user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.Password);
+        _context.Users.Add(user);
     }
     public void UpdateUser(User user)
     {
-        throw new NotImplementedException();
+        if(user.Password == null || user.Password == "")
+        {
+            user.Password = user.Username;
+        }
+        user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.Password);
+        _context.Users.Update(user);
     }
     public User GetUserByUserName(string userName)
     {            

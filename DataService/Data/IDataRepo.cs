@@ -49,11 +49,12 @@ public interface IDataRepo
     void DeleteZanr(Zanr zanr);
     #endregion
 
-
     #region Authentifikacija
     AuthenticateResponse Authenticate(AuthenticateRequest model);
     AuthenticateResponse ValidateToken(string token);
     #endregion
+
+    User CreateUser(User model);
 
 
 }

@@ -8,6 +8,7 @@ public interface IIdentityRepo
     User GetUserByUserName(string userName);
     void CreateUser(User user);
     void UpdateUser(User user);
+
     #endregion
 
 }

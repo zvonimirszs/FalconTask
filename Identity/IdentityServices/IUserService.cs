@@ -6,6 +6,6 @@ public interface IUserService
 {
     AuthenticateResponse Authenticate(AuthenticateRequest model);
     AuthenticateResponse ValidateToken(string token);
-    //IEnumerable<User> GetAll();
-    //User GetById(int id);
+    User CreateUser(User user);
+    User UpdateUser(User user);
 }

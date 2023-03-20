@@ -40,6 +40,26 @@ public class IdentityDataClient : IIdentityDataClient
         }
     }
 
+    public User ReturnCreateUserResponse(User model)
+    {
+        Console.WriteLine($"--> Povezivanje na GRPC Servis {_configuration["GrpcIdentity"]}. Metoda: ReturnCreateUserResponse");
+
+        var channel = GrpcChannel.ForAddress(_configuration["GrpcIdentity"]);
+        var client = new GrpcIdentity.GrpcIdentityClient(channel);
+        var request = new Identity.GrpcIdentityModel(_mapper.Map<GrpcIdentityModel>(model));
+        //var request = new Identity.GetAllRequest();
+        try
+        {
+            var reply = client.CreateUser(request);
+            return _mapper.Map<User>(reply.Identity);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"--> NIJE moguće pozvati ili povezati se na GRPC Server {ex.Message}");
+            throw new ServiceException($"--> NIJE moguće pozvati ili povezati se na GRPC Server za IDENTIFIKACIJU.");
+        }
+    }
+
     public AuthenticateResponse ReturnValidateTokenResponse(string token)
     {
         Console.WriteLine($"--> Povezivanje na GRPC Servis {_configuration["GrpcIdentity"]}. Metoda: ReturnValidateTokenResponse");

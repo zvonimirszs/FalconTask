@@ -57,5 +57,28 @@ namespace Identity.SyncDataServices.Grpc
             }
 
         }
+        public override Task<IdentityResponse> CreateUser(GrpcIdentityModel request, ServerCallContext context)
+        {
+            Console.WriteLine($"--> Getting CreateUser {JsonSerializer.Serialize(request)}...");
+            var user = _userService.CreateUser(_mapper.Map<User>(request));
+            if (user != null)
+            {
+                Console.WriteLine($"--> Reciving CreateUser {JsonSerializer.Serialize(user)}...");
+                var response = new IdentityResponse();
+                response.Identity = _mapper.Map<GrpcIdentityModel>(user);
+                Console.WriteLine($"--> Sending CreateUser Response {JsonSerializer.Serialize(response)}...");
+                return Task.FromResult(response);
+            }
+            else
+            {
+                var response = new IdentityResponse();
+                response.Identity = null;
+                return Task.FromResult(response);
+            }
+
+        }
+
     }
+
+
 }

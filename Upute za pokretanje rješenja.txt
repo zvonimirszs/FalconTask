@@ -59,8 +59,7 @@ POSTMAN
       - skinuti i instalirati na računalo
    - Uvoz API upita u Postman za testiranje programskog rješenja
       - dokumenti
-         - Postman.Kolekcija_za_testiranje.Lokalno.json
-         - Postman.Kolekcija_za_testiranje.K8S.json
+         - Falcon - DataService.postman_collection.json
 
 SKRIVENI KLJUČ U KIBERNETES
  - kreirati skriveni ključ

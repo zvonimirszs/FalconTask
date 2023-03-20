@@ -31,12 +31,12 @@ if (builder.Environment.IsProduction())
 }
 else
 {
-    //Console.WriteLine("--> Using InMem Db");
-    //builder.Services.AddDbContext<AppDbContext>(opt =>
-    //    opt.UseInMemoryDatabase("InMem"));
-    Console.WriteLine("--> Using SqlServer Db");
+    Console.WriteLine("--> Using InMem Db");
     builder.Services.AddDbContext<AppDbContext>(opt =>
-        opt.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConn")));
+        opt.UseInMemoryDatabase("InMem"));
+    //Console.WriteLine("--> Using SqlServer Db");
+    //builder.Services.AddDbContext<AppDbContext>(opt =>
+    //    opt.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConn")));
 }
 
 var app = builder.Build();
