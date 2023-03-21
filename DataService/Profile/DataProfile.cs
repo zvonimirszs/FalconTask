@@ -33,7 +33,8 @@ namespace DataService.Profiles
             CreateMap<GlumacCreateDto, Glumac>();
 
             CreateMap<Film, FilmReadDto>();
-              CreateMap<FilmCreateDto, Film>();
+            CreateMap<FilmCreateDto, Film>();
+            CreateMap<Film, FilmPublishedDto>(); ;
 
             CreateMap<GrpcIdentityModel, AuthenticateResponse>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.IdentityId))

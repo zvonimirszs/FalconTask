@@ -1,4 +1,6 @@
+using Identity.AsyncDataServices;
 using Identity.Data;
+using Identity.EventProcessing;
 using Identity.Helpers;
 using Identity.IdentityServices;
 using Identity.SyncDataServices.Grpc;
@@ -10,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddHostedService<MessageBusSubscriber>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddGrpc();
@@ -22,6 +25,7 @@ builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSet
 builder.Services.AddScoped<IIdentityRepo, IdentityRepo>();
 builder.Services.AddScoped<IJwtUtils, JwtUtils>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddSingleton<IEventProcessor, EventProcessor>();
 
 if (builder.Environment.IsProduction())
 {

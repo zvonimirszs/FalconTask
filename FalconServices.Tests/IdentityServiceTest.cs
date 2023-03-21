@@ -1,7 +1,4 @@
 ﻿using AutoMapper;
-using Identity.Data;
-using Identity.IdentityServices;
-using Identity.Models.Authenticate;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -14,52 +11,56 @@ namespace FalconServices.Tests
 {
     public  class IdentityServiceTest
     {
-        private readonly Mock<IIdentityRepo> identityRepo;
-        private readonly Mock<IUserService> userservice;
-        private readonly Mock<IMapper> mapper;
+        //private readonly Mock<IIdentityRepo> identityRepo;
+        //private readonly Mock<IUserService> userservice;
+        //private readonly IMapper _mapper;
+        //private readonly IConfigurationProvider _configuration;
 
         public IdentityServiceTest()
         {
-            identityRepo = new Mock<IIdentityRepo>();
-            userservice = new Mock<IUserService>();
-            mapper = new Mock<IMapper>();
+            //identityRepo = new Mock<IIdentityRepo>();
+
+            //_configuration = new MapperConfiguration(config => {
+            //    config.AddProfile<IdentityProfile>();
+            //});
+            //_mapper = _configuration.CreateMapper();
         }
 
 
-        #region Data
-        private List<User> GetUsersData()
-        {
-            List<User> korisnici = new List<User>
-                {
-                    new User
-                    {
-                        Id = 1,
-                        FirstName = "SuperKorisnik",
-                        LastName = "Admin",
-                        Username = "testAdmin",
-                        Role = "Admin",
-                        Password = "Admin"
-                    }
-                };
-            return korisnici;
-        }
+        #region Data Moq
+        //private List<User> GetUsersData()
+        //{
+        //    List<User> korisnici = new List<User>
+        //        {
+        //            new User
+        //            {
+        //                Id = 1,
+        //                FirstName = "SuperKorisnik",
+        //                LastName = "Admin",
+        //                Username = "testAdmin",
+        //                Role = "Admin",
+        //                Password = "Admin"
+        //            }
+        //        };
+        //    return korisnici;
+        //}
 
-        private List<AuthenticateResponse> GetAuthenticateResponseData()
-        {
-            List<AuthenticateResponse> korisnici = new List<AuthenticateResponse>
-                {
-                    new AuthenticateResponse
-                    {
-                        Id = 1,
-                        FirstName = "SuperKorisnik",
-                        LastName = "Admin",
-                        UserName = "testAdmin",
-                        Role = "Admin",
-                        JwtToken = ""
-                    }
-                };
-            return korisnici;
-        }
+        //private List<AuthenticateResponse> GetAuthenticateResponseData()
+        //{
+        //    List<AuthenticateResponse> korisnici = new List<AuthenticateResponse>
+        //        {
+        //            new AuthenticateResponse
+        //            {
+        //                Id = 1,
+        //                FirstName = "SuperKorisnik",
+        //                LastName = "Admin",
+        //                UserName = "testAdmin",
+        //                Role = "Admin",
+        //                JwtToken = ""
+        //            }
+        //        };
+        //    return korisnici;
+        //}
         #endregion
     }
 

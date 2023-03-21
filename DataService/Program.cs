@@ -1,3 +1,4 @@
+using DataService.AsyncDataServices;
 using DataService.Data;
 using DataService.Extensions;
 using DataService.Helpers;
@@ -11,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddScoped<IDataRepo, DataRepo>();
 builder.Services.AddScoped<IIdentityDataClient, IdentityDataClient>();
-//builder.Services.AddSingleton<IMessageBusClient, MessageBusClient>();
+builder.Services.AddSingleton<IMessageBusClient, MessageBusClient>();
 builder.Services.AddGrpc();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

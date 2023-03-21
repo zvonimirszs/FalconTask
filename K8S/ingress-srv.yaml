@@ -10,13 +10,13 @@ spec:
     - host: falcontask.com
       http:
         paths:
-          - path: /api/identifikacija
-            pathType: Prefix
-            backend:
-              service:
-                name: identity-clusterip-srv
-                port:
-                  number: 80
+          #- path: /api/identifikacija
+          #  pathType: Prefix
+          #  backend:
+          #    service:
+          #      name: identity-clusterip-srv
+          #      port:
+          #        number: 80
           - path: /api/podaci
             pathType: Prefix
             backend:

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DataService.AsyncDataServices;
 using DataService.Attributes.Authorization;
 using DataService.Data;
 using DataService.Dtos;
@@ -12,10 +13,12 @@ namespace DataService.Controllers
     public class FilmController : Controller
     {
         private readonly IDataRepo _repository;
+        private readonly IMessageBusClient _messageBusClient;
         private readonly IMapper _mapper;
-        public FilmController(IDataRepo repository, IMapper mapper)
+        public FilmController(IDataRepo repository, IMapper mapper, IMessageBusClient messageBusClient)
         {
             _repository = repository;
+            _messageBusClient = messageBusClient;
             _mapper = mapper;
         }
 
@@ -91,9 +94,17 @@ namespace DataService.Controllers
             film.Direktor = _repository.GetDirektorById(filmCreateDto.DirektorId);
             #endregion
 
-            //var film = _mapper.Map<Film>(filmCreateDto);
-
-            //TO DO: poslati asinkronu poruku na MQ
+            //Send Async Message poslati asinkronu poruku na MQ
+            try
+            {
+                var filmPublishedDto = _mapper.Map<FilmPublishedDto>(film);
+                filmPublishedDto.Event = "Film_Published";
+                _messageBusClient.PublishNewFilm(filmPublishedDto);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"--> Could not send asynchronously: {ex.Message}");
+            }
 
             _repository.CreateFilm(film);
             _repository.SaveChanges();

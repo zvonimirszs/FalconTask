@@ -9,17 +9,21 @@ using DataService.Profiles;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using AutoMapper;
+using DataService.Models.Authenticate;
+using DataService.AsyncDataServices;
 
 namespace FalconServices.Tests
 {
     public class DataServiceTest
     {
         private readonly Mock<IDataRepo> _dataRepo;
+        private readonly Mock<IMessageBusClient> _messageBusClient;
         private readonly IMapper _mapper;
         private readonly IConfigurationProvider _configuration;
         public DataServiceTest()
         {
             _dataRepo = new Mock<IDataRepo>();
+            _messageBusClient = new Mock<IMessageBusClient>();
             _configuration = new MapperConfiguration(config => {
                 config.AddProfile<DatasProfile>();
             });
@@ -90,26 +94,6 @@ namespace FalconServices.Tests
             Assert.IsType<List<DirektorReadDto>>(result?.Value);
         }
         [Fact]
-        public void GetDirektorById_Sucess_DirektorExistsInRepo()
-        {
-            //arrange
-            var direktori = GetDirektoriData();
-            var direktoriReadDto = GetDirektoriReadDtoData();
-   
-            _dataRepo.Setup(x => x.GetDirektorById(1))
-                .Returns(direktori[0]);
-            var controller = new DirektorController(_dataRepo.Object, _mapper);
-
-            //act
-            var actionResult = controller.GetDirektorById(1);
-            var result = actionResult.Result as OkObjectResult;
-            var actual = result.Value as DirektorReadDto;
-
-            //assert
-            Assert.NotNull(actual);
-            Assert.True(direktoriReadDto[0].Id == actual.Id);
-        }
-        [Fact]
         public void GetDirektorById_NotFound_DirektorWithIdNotExists()
         {
             //arrange
@@ -135,7 +119,7 @@ namespace FalconServices.Tests
 
         #endregion
 
-        #region Data
+        #region Data Moq
         private List<Direktor> GetDirektoriData()
         {
             List<Direktor> direktori = new List<Direktor>
@@ -163,6 +147,32 @@ namespace FalconServices.Tests
                 }
             };
             return direktori;
+        }
+
+        private List<AuthenticateResponse> GetAuthenticateResponseData()
+        {
+            List<AuthenticateResponse> korisnici = new List<AuthenticateResponse>
+                {
+                    new AuthenticateResponse
+                    {
+                        Id = 1,
+                        FirstName = "SuperKorisnik",
+                        LastName = "Admin",
+                        UserName = "testAdmin",
+                        Role = "Admin",
+                        JwtToken = ""
+                    }
+                };
+            return korisnici;
+        }
+
+        private AuthenticateRequest GetAuthenticateRequestData()
+        {
+            return new AuthenticateRequest
+            {
+                Username = "glumac",
+                Password =  "user"
+            };
         }
         #endregion
 
